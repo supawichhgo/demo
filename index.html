@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Gift</title>
+
+    <!-- Open Graph Meta Tags for Facebook Sharing -->
+    <meta property="og:title" content="Valentine's Gift">
+    <meta property="og:description" content="Send your loved one a special Valentine's Day surprise with hearts, flowers, and smiles!">
+    <meta property="og:image" content="https://example.com/your-image.jpg"> <!-- Replace with a URL to an image -->
+    <meta property="og:url" content="https://example.com"> <!-- Replace with your hosted link -->
+
+    <!-- Twitter Card Meta Tags (optional but recommended) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Valentine's Gift">
+    <meta name="twitter:description" content="Send your loved one a special Valentine's Day surprise with hearts, flowers, and smiles!">
+    <meta name="twitter:image" content="https://example.com/your-image.jpg"> <!-- Replace with your image URL -->
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #eaf2f8;
+            padding: 20px;
+            transition: background 1s;
+            overflow: hidden;
+        }
+        .gift-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background: darkred;
+        }
+        .heart, .flower, .smile {
+            position: absolute;
+            font-size: 24px;
+            opacity: 0.8;
+            animation: fall 4s linear infinite;
+        }
+        @keyframes fall {
+            from {
+                transform: translateY(-50px);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        /* Mobile responsiveness adjustments */
+        @media (max-width: 600px) {
+            .gift-box {
+                width: 90%;
+                padding: 15px;
+            }
+            .btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+            .heart, .flower, .smile {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gift-box">
+        <h1 id="header">Open this</h1>
+        <p id="message">Click the button to receive your gift!</p>
+        <button class="btn" onclick="giveGift()">Open Gift</button>
+    </div>
+
+    <script>
+        function giveGift() {
+            let sender = "Go";
+            let receiver = "Tadi";
+            let gift = " beautiful flower. ps.let him sleep🛌🏻 and play game🕹️ ";
+            document.getElementById("message").innerHTML = sender + " sweetly handed " + receiver + gift + "! 🌹";
+            document.getElementById("header").innerHTML = "💖 Happy Valentine's Day! 💖";
+            createHearts();
+            createFlowers();
+            createSmile();
+        }
+
+        function createHearts() {
+            for (let i = 0; i < 30; i++) {
+                let heart = document.createElement("div");
+                heart.innerHTML = "💘";
+                heart.className = "heart";
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+                document.body.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 4000);
+            }
+        }
+
+        function createFlowers() {
+            for (let i = 0; i < 20; i++) {
+                let flower = document.createElement("div");
+                flower.innerHTML = "💐";
+                flower.className = "flower";
+                flower.style.left = Math.random() * 100 + "vw";
+                flower.style.animationDuration = (Math.random() * 2 + 3) + "s";
+                document.body.appendChild(flower);
+
+                setTimeout(() => {
+                    flower.remove();
+                }, 4000);
+            }
+        }
+        
+        function createSmile() {
+            for (let i = 0; i < 40; i++) {
+                let smile = document.createElement("div");
+                smile.innerHTML = "👦🏻";
+                smile.className = "smile";
+                smile.style.left = Math.random() * 100 + "vw";
+                smile.style.animationDuration = (Math.random() * 2 + 3) + "s";
+                document.body.appendChild(smile);
+
+                setTimeout(() => {
+                    smile.remove();
+                }, 4000);
+            }
+        }
+    </script>
+</body>
+</html>
